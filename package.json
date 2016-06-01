@@ -1,0 +1,21 @@
+{
+  "name": "alphaville-marketslive-wordpress-api",
+  "private": "true",
+  "version": "0.1.0",
+  "description": "Communication module with MarketsLive Wordpress API",
+  "main": "main.js",
+  "scripts": {
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Financial-Times/alphaville-marketslive-wordpress-api.git"
+  },
+  "author": "Roland Vachter <roland.vachter@ft.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Financial-Times/alphaville-marketslive-wordpress-api/issues"
+  },
+  "dependencies": {
+    "node-fetch": "^1.5.3"
+  }
+}
