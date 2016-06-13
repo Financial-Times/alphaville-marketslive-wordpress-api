@@ -40,6 +40,8 @@ function WpApi (uuid) {
 				};
 			}
 
+			console.log(response);
+
 			let json;
 			try {
 				json = response.json();
@@ -56,6 +58,7 @@ function WpApi (uuid) {
 				};
 			}
 		}).catch((err) => {
+			console.log(err);
 			throw {
 				statusCode: err.statusCode || 503,
 				error: err instanceof Error ? err : (err.error ? err.error : new Error("Unexpected response"))
