@@ -40,10 +40,6 @@ function WpApi (uuid) {
 				};
 			}
 
-			response.text().then((text) => {
-				console.log('response:' + text);
-			});
-
 			let json;
 			try {
 				json = response.json();
