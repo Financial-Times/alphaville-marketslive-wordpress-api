@@ -35,7 +35,7 @@ function WpApi (uuid) {
 		return fetch(url).then((response) => {
 			if (response.status < 200 || response.status >= 400) {
 				throw {
-					statusCode: response.status,
+					status: response.status,
 					error: response.status === 404 ? new Error("Not found") : null
 				};
 			}
@@ -51,14 +51,14 @@ function WpApi (uuid) {
 				return json;
 			} else {
 				throw {
-					statusCode: 503,
+					status: 503,
 					error: new Error("Unexpected response.")
 				};
 			}
 		}).catch((err) => {
 			console.log(err);
 			throw {
-				statusCode: err.statusCode || 503,
+				status: err.status || 503,
 				error: err instanceof Error ? err : (err.error ? err.error : new Error("Unexpected response"))
 			};
 		});
