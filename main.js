@@ -82,6 +82,12 @@ function WpApi (uuid) {
 			action: 'getmeta'
 		}));
 	};
+
+	this.init = function () {
+		return fetchApi(getUrlWithQueryParams({
+			action: 'init'
+		}));
+	};
 }
 
 WpApi.setBaseUrl = function (baseUrl) {
