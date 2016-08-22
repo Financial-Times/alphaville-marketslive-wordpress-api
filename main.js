@@ -2,8 +2,14 @@
 
 const fetch = require('node-fetch');
 
-function WpApi (uuid) {
-	const apiUrl = `${this.baseUrl}/marketslive/${uuid}`;
+function WpApi (apiPath) {
+	apiPath = apiPath.replace('marketslive', '');
+
+	while (apiPath[0] === '/') {
+		apiPath = apiPath.substr(1, apiPath.length);
+	}
+
+	const apiUrl = `${this.baseUrl}/marketslive/${apiPath}`;
 	const apiVersion = 2;
 
 
