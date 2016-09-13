@@ -83,6 +83,19 @@ function WpApi (apiPath) {
 		}));
 	};
 
+	this.transcript = function () {
+		return fetchApi(getUrlWithQueryParams({
+			action: 'transcript_catchup'
+		}));
+	};
+
+	this.transcriptJson = function () {
+		return fetchApi(getUrlWithQueryParams({
+			action: 'transcript_catchup',
+			format: 'json'
+		}));
+	};
+
 	this.status = function () {
 		return fetchApi(getUrlWithQueryParams({
 			action: 'getmeta'
