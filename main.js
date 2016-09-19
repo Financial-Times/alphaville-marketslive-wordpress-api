@@ -42,7 +42,8 @@ function WpApi (apiPath) {
 			if (response.status < 200 || response.status >= 400) {
 				throw {
 					status: response.status,
-					error: response.status === 404 ? new Error("Not found") : null
+					error: response.status === 404 ? new Error("Not found") : null,
+					url: url
 				};
 			}
 
