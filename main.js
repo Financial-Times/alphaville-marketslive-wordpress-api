@@ -38,36 +38,14 @@ function WpApi (apiPath) {
 
 
 	function fetchApi (url) {
-		return fetch(url).then((response) => {
-			if (response.status < 200 || response.status >= 400) {
-				throw {
-					status: response.status,
-					error: response.status === 404 ? new Error("Not found") : null,
-					url: url
-				};
-			}
-
-			let json;
-			try {
-				json = response.json();
-			} catch (e) {
-				json = null;
-			}
-
-			if (json) {
-				return json;
+		return fetch(url).then((res) => {
+			if (res.ok) {
+				return res.json();
 			} else {
-				throw {
-					status: 503,
-					error: new Error("Unexpected response.")
-				};
+				const error = new Error(res.statusText);
+				error.response = res;
+				throw error;
 			}
-		}).catch((err) => {
-			console.log(err);
-			throw {
-				status: err.status || 503,
-				error: err instanceof Error ? err : (err.error ? err.error : new Error("Unexpected response"))
-			};
 		});
 	}
 
